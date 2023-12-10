@@ -8,6 +8,7 @@ import '../components/header_top.dart';
 import '../components/search_destination.dart';
 import '../components/title_section.dart';
 import '../utils/styles.dart';
+import 'booking_screen.dart';
 
 
 
@@ -80,10 +81,10 @@ class _HomepageScreenState extends State<HomepageScreen> {
   void _navigateToScreen(int index) {
     switch (index) {
       case 0:
-        Navigator.pushNamed(context, HomepageScreen.routeName);
+        // Homepage Screen
         break;
       case 1:
-        Navigator.pushNamed(context, LoginScreen.routeName);
+        Navigator.pushNamed(context, BookingScreen.routeName);
         break;
       case 2:
         Navigator.pushNamed(context, InformationScreen.routeName);

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 //Colors
-var accent = const Color(0xFF18A5FD);
+var accent = const Color(0xFFA61010);
 var accentLight = const Color(0xFF66ACE9);
 var heading = const Color(0xFF0F1641);
 var text = const Color(0xFFAAAAAA);

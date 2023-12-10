@@ -5,6 +5,7 @@ import 'package:nepal_wanderer/pages/login_screen.dart';
 import 'package:nepal_wanderer/pages/profile_screen.dart';
 
 import '../utils/styles.dart';
+import 'booking_screen.dart';
 
 class InformationScreen extends StatefulWidget {
   const InformationScreen({Key? key}) : super(key: key);
@@ -151,10 +152,10 @@ class _InformationScreenState extends State<InformationScreen> {
         Navigator.pushNamed(context, HomepageScreen.routeName);
         break;
       case 1:
-        Navigator.pushNamed(context, LoginScreen.routeName);
+        Navigator.pushNamed(context, BookingScreen.routeName);
         break;
       case 2:
-      // Already on InformationScreen
+      // InformationScreen
         break;
       case 3:
         Navigator.pushNamed(context, ProfileScreen.routeName);

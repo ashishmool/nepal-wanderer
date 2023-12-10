@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nepal_wanderer/pages/homepage_screen.dart';
 
 import '../utils/styles.dart';
+import 'booking_screen.dart';
 import 'information_screen.dart';
 import 'login_screen.dart';
 
@@ -116,7 +117,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         Navigator.pushNamed(context, HomepageScreen.routeName);
         break;
       case 1:
-        Navigator.pushNamed(context, LoginScreen.routeName);
+        Navigator.pushNamed(context, BookingScreen.routeName);
         break;
       case 2:
         Navigator.pushNamed(context, InformationScreen.routeName);

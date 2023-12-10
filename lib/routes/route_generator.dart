@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../pages/homepage_screen.dart';
 import '../pages/information_screen.dart';
 import '../pages/login_screen.dart';
+import '../pages/booking_screen.dart';
 import '../pages/profile_screen.dart';
 import '../pages/registration_screen.dart';
 import '../pages/splash_screen.dart';
@@ -31,6 +32,9 @@ class RouteGenerator{
 
       case ProfileScreen.routeName:
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
+
+      case BookingScreen.routeName:
+        return MaterialPageRoute(builder: (_) => BookingScreen());
 
       default:
         _onPageNotFound();
