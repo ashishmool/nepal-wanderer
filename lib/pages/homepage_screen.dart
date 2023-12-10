@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:nepal_wanderer/components/recommended_destination.dart';
+import 'package:nepal_wanderer/components/top_destination.dart';
 import 'package:nepal_wanderer/pages/login_screen.dart';
 import '../components/header_top.dart';
+import '../components/search_destination.dart';
+import '../components/title_section.dart';
 import '../utils/styles.dart';
 
 
@@ -29,15 +33,15 @@ class _HomepageScreenState extends State<HomepageScreen> {
               children: [
                 const HeadingComponent(),
                 SizedBox(height: medium),
-                // const SearchSection(),
+                const SearchDestination(),
                 SizedBox(height: medium),
-                // LabelSection(text: 'Recommended', style: heading1),
+                TitleSection(text: 'Most Popular', style: heading1),
                 SizedBox(height: medium),
-                // const Recommended(),
+                const RecommendedDestination(),
                 SizedBox(height: medium),
                 SizedBox(height: medium),
-                // LabelSection(text: 'Top Destinations', style: heading2),
-                // const Top(),
+                TitleSection(text: 'Top Destinations', style: heading2),
+                const TopDestination(),
                 SizedBox(height: medium),
               ],
             ),
