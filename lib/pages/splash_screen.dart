@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
+import 'login_screen.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -19,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void navigate() async {
     await Future.delayed(Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, SplashScreen.routeName);
+      Navigator.pushReplacementNamed(context, LoginScreen.routeName);
     });
   }
 

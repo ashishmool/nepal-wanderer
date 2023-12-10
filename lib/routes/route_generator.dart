@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../pages/login_screen.dart';
+import '../pages/registration_screen.dart';
 import '../pages/splash_screen.dart';
 
 
@@ -12,6 +14,11 @@ class RouteGenerator{
       case SplashScreen.routeName:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
 
+      case LoginScreen.routeName:
+        return MaterialPageRoute(builder: (_) => const LoginScreen());
+
+      case RegistrationScreen.routeName:
+        return MaterialPageRoute(builder: (_) => const RegistrationScreen());
 
       default:
         _onPageNotFound();
