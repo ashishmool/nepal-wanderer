@@ -3,6 +3,7 @@ import 'package:nepal_wanderer/components/recommended_destination.dart';
 import 'package:nepal_wanderer/components/top_destination.dart';
 import 'package:nepal_wanderer/pages/information_screen.dart';
 import 'package:nepal_wanderer/pages/login_screen.dart';
+import 'package:nepal_wanderer/pages/profile_screen.dart';
 import '../components/header_top.dart';
 import '../components/search_destination.dart';
 import '../components/title_section.dart';
@@ -88,7 +89,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
         Navigator.pushNamed(context, InformationScreen.routeName);
         break;
       case 3:
-        Navigator.pushNamed(context, LoginScreen.routeName);
+        Navigator.pushNamed(context, ProfileScreen.routeName);
         break;
     }
   }

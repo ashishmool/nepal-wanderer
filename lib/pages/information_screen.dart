@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:nepal_wanderer/pages/homepage_screen.dart';
 import 'package:nepal_wanderer/pages/login_screen.dart';
+import 'package:nepal_wanderer/pages/profile_screen.dart';
 
 import '../utils/styles.dart';
 
@@ -118,8 +119,7 @@ class _InformationScreenState extends State<InformationScreen> {
             BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
             BottomNavigationBarItem(icon: Icon(Icons.bookmark_outline), label: ''),
             BottomNavigationBarItem(icon: Icon(Icons.emergency_outlined), label: ''),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.person_outlined), label: ''),
+            BottomNavigationBarItem(icon: Icon(Icons.person_outlined), label: ''),
           ],
         ),
       ),
@@ -151,13 +151,13 @@ class _InformationScreenState extends State<InformationScreen> {
         Navigator.pushNamed(context, HomepageScreen.routeName);
         break;
       case 1:
-        Navigator.pushNamed(context, HomepageScreen.routeName);
+        Navigator.pushNamed(context, LoginScreen.routeName);
         break;
       case 2:
       // Already on InformationScreen
         break;
       case 3:
-        Navigator.pushNamed(context, LoginScreen.routeName);
+        Navigator.pushNamed(context, ProfileScreen.routeName);
         break;
     }
   }
