@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nepal_wanderer/pages/splash_screen.dart';
+import 'package:nepal_wanderer/routes/route_generator.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +13,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Nepal Wanderer - Mobile Travel App',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -31,7 +34,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      initialRoute: SplashScreen.routeName,
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }
