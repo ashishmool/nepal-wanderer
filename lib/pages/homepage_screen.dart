@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nepal_wanderer/components/recommended_destination.dart';
 import 'package:nepal_wanderer/components/top_destination.dart';
+import 'package:nepal_wanderer/pages/information_screen.dart';
 import 'package:nepal_wanderer/pages/login_screen.dart';
 import '../components/header_top.dart';
 import '../components/search_destination.dart';
@@ -66,8 +67,8 @@ class _HomepageScreenState extends State<HomepageScreen> {
           type: BottomNavigationBarType.fixed,
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-            BottomNavigationBarItem(icon: Icon(Icons.explore_outlined), label: ''),
             BottomNavigationBarItem(icon: Icon(Icons.bookmark_outline), label: ''),
+            BottomNavigationBarItem(icon: Icon(Icons.emergency_outlined), label: ''),
             BottomNavigationBarItem(icon: Icon(Icons.person_outlined), label: ''),
           ],
         ),
@@ -84,7 +85,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
         Navigator.pushNamed(context, LoginScreen.routeName);
         break;
       case 2:
-        Navigator.pushNamed(context, LoginScreen.routeName);
+        Navigator.pushNamed(context, InformationScreen.routeName);
         break;
       case 3:
         Navigator.pushNamed(context, LoginScreen.routeName);
