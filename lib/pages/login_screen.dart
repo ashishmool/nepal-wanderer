@@ -1,6 +1,8 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+
 import 'package:nepal_wanderer/pages/registration_screen.dart';
+import 'homepage_screen.dart';
 
 
 class LoginScreen extends StatefulWidget {
@@ -117,7 +119,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: IconButton(
                   icon: Icon(Icons.dashboard, size: 50, color: Colors.blue[900]),
                   onPressed: () {
-                    // Navigator.pushNamed(context, HomePage.routeName);
+                    Navigator.pushNamed(context, HomepageScreen.routeName);
                   },
                 ),
               ),
