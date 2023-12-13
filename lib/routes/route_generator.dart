@@ -43,7 +43,8 @@ class RouteGenerator{
   }
 
   static Route<dynamic> _onPageNotFound() {
-    return MaterialPageRoute(builder: (_) => const Scaffold(body: Text("Page Not Found")),
+    return MaterialPageRoute(
+      builder: (_) => const Scaffold(body: Text("Page Not Found")),
     );
   }
 

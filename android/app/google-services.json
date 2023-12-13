@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "354824055694",
+    "project_id": "mobile-application-devel-cf816",
+    "storage_bucket": "mobile-application-devel-cf816.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:354824055694:android:89bef3346bc2ab293352df",
+        "android_client_info": {
+          "package_name": "com.example.new_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUbzae975xCA56_sjHCqmk1dtabkrvkMc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:354824055694:android:7fadde9d542dc3453352df",
+        "android_client_info": {
+          "package_name": "com.nepalwanderer.nepal_wanderer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUbzae975xCA56_sjHCqmk1dtabkrvkMc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
