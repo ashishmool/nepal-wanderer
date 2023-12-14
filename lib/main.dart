@@ -1,8 +1,16 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:nepal_wanderer/pages/splash_screen.dart';
 import 'package:nepal_wanderer/routes/route_generator.dart';
 
-void main() {
+import 'firebase_options.dart';
+import 'forms/form_screen.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+   await Firebase.initializeApp(
+     options: DefaultFirebaseOptions.currentPlatform,
+   );
   runApp(const MyApp());
 }
 

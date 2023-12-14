@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../forms/form_screen.dart';
 import '../pages/homepage_screen.dart';
 import '../pages/information_screen.dart';
 import '../pages/login_screen.dart';
@@ -35,6 +36,9 @@ class RouteGenerator{
 
       case BookingScreen.routeName:
         return MaterialPageRoute(builder: (_) => BookingScreen());
+
+      case FormScreen.routeName:
+        return MaterialPageRoute(builder: (_) => FormScreen());
 
       default:
         _onPageNotFound();

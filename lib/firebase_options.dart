@@ -50,19 +50,21 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAUbzae975xCA56_sjHCqmk1dtabkrvkMc',
-    appId: '1:354824055694:android:7fadde9d542dc3453352df',
-    messagingSenderId: '354824055694',
-    projectId: 'mobile-application-devel-cf816',
-    storageBucket: 'mobile-application-devel-cf816.appspot.com',
+    apiKey: 'AIzaSyDlnPsWWE5dAklZCufSV2QOz7ysyA0Zjxw',
+    appId: '1:616458751235:android:3f2c3f7dd45aaaaa6fad36',
+    messagingSenderId: '616458751235',
+    projectId: 'nepal-wanderer',
+    databaseURL: 'https://nepal-wanderer-default-rtdb.firebaseio.com',
+    storageBucket: 'nepal-wanderer.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDa8MTiHJ4nIS37r2ovIhBrJNNti7mAXGI',
-    appId: '1:354824055694:ios:a3c5a5553854ce543352df',
-    messagingSenderId: '354824055694',
-    projectId: 'mobile-application-devel-cf816',
-    storageBucket: 'mobile-application-devel-cf816.appspot.com',
+    apiKey: 'AIzaSyD_N5jnFaclBKBXq8vV0YL8bm4fEzr1Vyk',
+    appId: '1:616458751235:ios:c90773c51150624e6fad36',
+    messagingSenderId: '616458751235',
+    projectId: 'nepal-wanderer',
+    databaseURL: 'https://nepal-wanderer-default-rtdb.firebaseio.com',
+    storageBucket: 'nepal-wanderer.appspot.com',
     iosBundleId: 'com.nepalwanderer.nepalWanderer',
   );
 }

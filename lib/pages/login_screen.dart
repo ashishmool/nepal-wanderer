@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +19,9 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   bool visibility = true;
+  bool loading = false;
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Container(
-                height: 200,
+                height: 160,
                 child: Image.asset("assets/icons/nw-logo.png"),
                 margin: EdgeInsets.all(40),
               ),
@@ -90,7 +94,38 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 60),
+              SizedBox(height: 16),
+              SizedBox(
+                width: double.infinity,
+                height: 50,
+                child: ElevatedButton(
+                  onPressed: () async {
+                    setState((){
+                      loading = true;
+                    });
+
+
+                    final user = await _auth.createUserWithEmailAndPassword(
+                        email: emailController.text,
+                        password: passwordController.text);
+                    if (user.user != null) {
+                      emailController.clear();
+                      passwordController.clear();
+                      // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Registration Successful")));
+                      Navigator.pushNamed(context, HomepageScreen.routeName);
+                    }
+                  },
+
+                  child: Text('Register', style: TextStyle(fontSize: 18, color: Colors.white)),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.blue[900],
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(14),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 50),
               SizedBox(
                 width: double.infinity,
                 child: Center(
@@ -101,7 +136,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       children: [
                         TextSpan(
                           text: 'Register Now',
-                          style: TextStyle(fontSize: 16, color: Colors.deepOrange[800]),
+                          style: TextStyle(fontSize: 16, color: Colors.red[800]),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
                               Navigator.pushNamed(context, RegistrationScreen.routeName);
@@ -113,7 +148,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
 
-              SizedBox(height: 40),
+              SizedBox(height: 18),
               SizedBox(
                 width: double.infinity,
                 child: IconButton(

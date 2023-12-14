@@ -38,6 +38,9 @@ dependencies:
   firebase_core: ^2.24.0
   google_fonts: ^5.1.0
   lottie:
+  firebase_auth: ^4.15.3
+  overlay_kit:
+  firebase_database: ^10.3.8
 
 dev_dependencies:
   flutter_test:
