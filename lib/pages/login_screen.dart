@@ -94,37 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 16),
-              SizedBox(
-                width: double.infinity,
-                height: 50,
-                child: ElevatedButton(
-                  onPressed: () async {
-                    setState((){
-                      loading = true;
-                    });
 
-
-                    final user = await _auth.createUserWithEmailAndPassword(
-                        email: emailController.text,
-                        password: passwordController.text);
-                    if (user.user != null) {
-                      emailController.clear();
-                      passwordController.clear();
-                      // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Registration Successful")));
-                      Navigator.pushNamed(context, HomepageScreen.routeName);
-                    }
-                  },
-
-                  child: Text('Register', style: TextStyle(fontSize: 18, color: Colors.white)),
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.blue[900],
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(14),
-                    ),
-                  ),
-                ),
-              ),
               SizedBox(height: 50),
               SizedBox(
                 width: double.infinity,
@@ -148,7 +118,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
 
-              SizedBox(height: 18),
+              SizedBox(height: 40),
               SizedBox(
                 width: double.infinity,
                 child: IconButton(

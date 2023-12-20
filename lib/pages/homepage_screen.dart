@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nepal_wanderer/components/recommended_destination.dart';
 import 'package:nepal_wanderer/components/top_destination.dart';
@@ -46,8 +47,32 @@ class _HomepageScreenState extends State<HomepageScreen> {
                 TitleSection(text: 'Top Destinations', style: heading2),
                 const TopDestination(),
                 SizedBox(height: medium),
+                SizedBox(height: 16),
+                SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                  child: ElevatedButton(
+                    onPressed: ()  {
+
+                      FirebaseAuth.instance.signOut();
+                      Navigator.pushReplacementNamed(context, LoginScreen.routeName);
+
+
+                    },
+
+                    child: Text('Logout', style: TextStyle(fontSize: 18, color: Colors.white)),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.blue[900],
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14),
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
+
+
           ),
         ),
       ),

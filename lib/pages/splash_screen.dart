@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:nepal_wanderer/pages/homepage_screen.dart';
+import 'package:nepal_wanderer/pages/registration_screen.dart';
 
 import 'login_screen.dart';
 
