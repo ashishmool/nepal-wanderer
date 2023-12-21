@@ -32,6 +32,16 @@ class _FormScreenState extends State<FormScreen> {
             padding: const EdgeInsets.all(20.0),
             child: Column(
               children: [
+
+                StreamBuilder(
+                    stream: database.ref('users').onValue,
+                    builder: (context, snapshot){
+                      print(snapshot.data!.snapshot.value);
+                      return Text("data");
+                    }
+                ),
+
+
                 SizedBox(height: 24),
                 TextFormField(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -134,6 +144,9 @@ class _FormScreenState extends State<FormScreen> {
                         };
                         await database.ref().child("users").push().set(data).then((value){
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Success")));
+
+                          Navigator.pushReplacementNamed(context, FormScreen.routeName);
+
                         }).onError((error, stackTrace) {
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Failed")));
                         });
