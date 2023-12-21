@@ -132,7 +132,7 @@ class _FormScreenState extends State<FormScreen> {
                           "contact":contact.text,
                           "email":email.text,
                         };
-                        await database.ref().push().set(data).then((value){
+                        await database.ref().child("users").push().set(data).then((value){
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Success")));
                         }).onError((error, stackTrace) {
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Failed")));
