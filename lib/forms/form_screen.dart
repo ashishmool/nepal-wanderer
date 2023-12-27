@@ -37,7 +37,19 @@ class _FormScreenState extends State<FormScreen> {
                     stream: database.ref('users').onValue,
                     builder: (context, snapshot){
                       print(snapshot.data!.snapshot.value);
-                      return Text("data");
+                      Map<dynamic,dynamic> _datas = snapshot.data!.snapshot.value as dynamic;
+                      List<dynamic> value = _datas.values.toList();
+                      List<dynamic> key = _datas.keys.toList();
+                      return ListView.builder(
+                        itemCount: value.length,
+                        shrinkWrap: true,
+                        physics: ScrollPhysics(),
+                        itemBuilder: (context, index){
+                          return ListTile(
+                            title: Text(value[index]['email'].toString())
+                          );
+                        },
+                      );
                     }
                 ),
 
