@@ -3,6 +3,7 @@ import 'package:lottie/lottie.dart';
 import 'package:nepal_wanderer/pages/homepage_screen.dart';
 import 'package:nepal_wanderer/pages/registration_screen.dart';
 
+import '../forms/form_screen.dart';
 import 'login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -23,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void navigate() async {
     await Future.delayed(Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, LoginScreen.routeName);
+      Navigator.pushReplacementNamed(context, FormScreen.routeName);
     });
   }
 
