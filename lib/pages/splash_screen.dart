@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:nepal_wanderer/firestore_example/firestore_example.dart';
 import 'package:nepal_wanderer/pages/homepage_screen.dart';
 import 'package:nepal_wanderer/pages/registration_screen.dart';
 
@@ -24,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void navigate() async {
     await Future.delayed(Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, FormScreen.routeName);
+      Navigator.pushReplacementNamed(context, LoginScreen.routeName);
     });
   }
 

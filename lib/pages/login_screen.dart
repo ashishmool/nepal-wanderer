@@ -1,10 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:nepal_wanderer/pages/registration_screen.dart';
+import 'package:nepal_wanderer/provider/user_view_model.dart';
+import 'package:provider/provider.dart';
 import 'homepage_screen.dart';
-
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -22,6 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
   bool loading = false;
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +34,11 @@ class _LoginScreenState extends State<LoginScreen> {
         backgroundColor: Colors.blue[900],
         title: Text(
           'Secure Login',
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 18),
+          style: TextStyle(
+              fontWeight: FontWeight.bold, color: Colors.white, fontSize: 18),
         ),
         centerTitle: true,
       ),
-
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(24.0),
@@ -83,22 +86,57 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(
                 width: double.infinity,
                 height: 50,
-                child: ElevatedButton(
-                  onPressed: () {
-                    if(emailController.text == null || passwordController.text == null){
+                child: Consumer<UserViewModel>(
+                  builder: (context,users,child) {
+                    return ElevatedButton(
+                      onPressed: () async {
 
-                    }
-                  },
-                  child: Text('Login', style: TextStyle(fontSize: 18, color: Colors.white)),
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.red[800],
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(14),
-                    ),
-                  ),
+                 await users.login(emailController.text, passwordController.text).then((value) {
+                   print(users.user);
+                   if(users.user.email != null){
+                     print("success");
+                   }else{
+                     print("failed");
+                   }
+                 });
+
+
+                        // if(emailController.text == null || passwordController.text == null){
+                        //
+                        // }
+                        // else{
+                        //   setState((){
+                        //     loading = true;
+                        //   });
+                        //
+                        //
+                        //     final user = await _auth.signInWithEmailAndPassword(
+                        //         email: emailController.text,
+                        //         password: passwordController.text);
+                        //     if (user.user != null) {
+                        //
+                        //       emailController.clear();
+                        //       passwordController.clear();
+                        //       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Login Successful")));
+                        //       Navigator.pushNamed(context, HomepageScreen.routeName);
+                        //     }
+                        //
+                        //   else{
+                        //     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Password Mismatch")));
+                        //   }
+                      },
+                      child: Text('Login',
+                          style: TextStyle(fontSize: 18, color: Colors.white)),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.red[800],
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                      ),
+                    );
+                  }
                 ),
               ),
-
               SizedBox(height: 50),
               SizedBox(
                 width: double.infinity,
@@ -106,14 +144,17 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: RichText(
                     text: TextSpan(
                       text: "Don't have an account? ",
-                      style: TextStyle(fontSize: 16, color: Colors.black, wordSpacing: 2),
+                      style: TextStyle(
+                          fontSize: 16, color: Colors.black, wordSpacing: 2),
                       children: [
                         TextSpan(
                           text: 'Register Now',
-                          style: TextStyle(fontSize: 16, color: Colors.red[800]),
+                          style:
+                              TextStyle(fontSize: 16, color: Colors.red[800]),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                              Navigator.pushNamed(context, RegistrationScreen.routeName);
+                              Navigator.pushNamed(
+                                  context, RegistrationScreen.routeName);
                             },
                         ),
                       ],
@@ -121,12 +162,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-
               SizedBox(height: 40),
               SizedBox(
                 width: double.infinity,
                 child: IconButton(
-                  icon: Icon(Icons.dashboard, size: 50, color: Colors.blue[900]),
+                  icon:
+                      Icon(Icons.dashboard, size: 50, color: Colors.blue[900]),
                   onPressed: () {
                     Navigator.pushNamed(context, HomepageScreen.routeName);
                   },
@@ -137,8 +178,6 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
-
-
   }
 }
 

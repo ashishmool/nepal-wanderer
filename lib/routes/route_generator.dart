@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nepal_wanderer/firestore_example/firestore_example.dart';
 
 import '../forms/form_screen.dart';
 import '../pages/homepage_screen.dart';
@@ -39,6 +40,9 @@ class RouteGenerator{
 
       case FormScreen.routeName:
         return MaterialPageRoute(builder: (_) => FormScreen());
+
+      case FirestoreExample.routeName:
+        return MaterialPageRoute(builder: (_) => FirestoreExample());
 
       default:
         _onPageNotFound();
