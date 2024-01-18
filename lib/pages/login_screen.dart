@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'package:nepal_wanderer/pages/registration_screen.dart';
 import 'package:nepal_wanderer/provider/user_view_model.dart';
+import 'package:nepal_wanderer/service/notification_service.dart';
 import 'package:provider/provider.dart';
 import 'homepage_screen.dart';
 
@@ -86,56 +87,64 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(
                 width: double.infinity,
                 height: 50,
-                child: Consumer<UserViewModel>(
-                  builder: (context,users,child) {
-                    return ElevatedButton(
-                      onPressed: () async {
+                child:
+                    Consumer<UserViewModel>(builder: (context, users, child) {
+                  return ElevatedButton(
+                    onPressed: () async {
+                      await users
+                          .login(emailController.text, passwordController.text)
+                          .then((value) {
+                        print(users.user);
+                        if (users.user.email != null) {
+                          print("success");
+                          emailController.clear();
+                          passwordController.clear();
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text("Login Successful")));
+                          Navigator.pushNamed(
+                              context, HomepageScreen.routeName);
+                        } else {
+                          print(users.user.email);
+                          print("failed");
+                          emailController.clear();
+                          passwordController.clear();
+                        }
+                      });
 
-                 await users.login(emailController.text, passwordController.text).then((value) {
-                   print(users.user);
-                   if(users.user.email != null){
-                     print("success");
-                   }else{
-                     print("failed");
-                   }
-                 });
-
-
-                        // if(emailController.text == null || passwordController.text == null){
-                        //
-                        // }
-                        // else{
-                        //   setState((){
-                        //     loading = true;
-                        //   });
-                        //
-                        //
-                        //     final user = await _auth.signInWithEmailAndPassword(
-                        //         email: emailController.text,
-                        //         password: passwordController.text);
-                        //     if (user.user != null) {
-                        //
-                        //       emailController.clear();
-                        //       passwordController.clear();
-                        //       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Login Successful")));
-                        //       Navigator.pushNamed(context, HomepageScreen.routeName);
-                        //     }
-                        //
-                        //   else{
-                        //     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Password Mismatch")));
-                        //   }
-                      },
-                      child: Text('Login',
-                          style: TextStyle(fontSize: 18, color: Colors.white)),
-                      style: ElevatedButton.styleFrom(
-                        primary: Colors.red[800],
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(14),
-                        ),
+                      // if(emailController.text == null || passwordController.text == null){
+                      //
+                      // }
+                      // else{
+                      //   setState((){
+                      //     loading = true;
+                      //   });
+                      //
+                      //
+                      //     final user = await _auth.signInWithEmailAndPassword(
+                      //         email: emailController.text,
+                      //         password: passwordController.text);
+                      //     if (user.user != null) {
+                      //
+                      //       emailController.clear();
+                      //       passwordController.clear();
+                      //       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Login Successful")));
+                      //       Navigator.pushNamed(context, HomepageScreen.routeName);
+                      //     }
+                      //
+                      //   else{
+                      //     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Password Mismatch")));
+                      //   }
+                    },
+                    child: Text('Login',
+                        style: TextStyle(fontSize: 18, color: Colors.white)),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.red[800],
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(14),
                       ),
-                    );
-                  }
-                ),
+                    ),
+                  );
+                }),
               ),
               SizedBox(height: 50),
               SizedBox(
@@ -163,13 +172,26 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               SizedBox(height: 40),
+              // SizedBox(
+              //   width: double.infinity,
+              //   child: IconButton(
+              //     icon:
+              //         Icon(Icons.dashboard, size: 50, color: Colors.blue[900]),
+              //     onPressed: () {
+              //       Navigator.pushNamed(context, HomepageScreen.routeName);
+              //     },
+              //   ),
+              // ),
               SizedBox(
                 width: double.infinity,
                 child: IconButton(
                   icon:
-                      Icon(Icons.dashboard, size: 50, color: Colors.blue[900]),
+                  Icon(Icons.notification_add, size: 50, color: Colors.blue[900]),
                   onPressed: () {
-                    Navigator.pushNamed(context, HomepageScreen.routeName);
+                    NotificationService.display(
+                        title: "Holiday Notice",
+                        body: "Happy New Year 2024. Holiday Information. Tomorrow is a holiday!",
+                        image: "assets/icons/nw-logo.png");
                   },
                 ),
               ),

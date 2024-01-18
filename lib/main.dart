@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:nepal_wanderer/pages/splash_screen.dart';
 import 'package:nepal_wanderer/provider/user_view_model.dart';
 import 'package:nepal_wanderer/routes/route_generator.dart';
+import 'package:nepal_wanderer/service/notification_service.dart';
 import 'package:overlay_kit/overlay_kit.dart';
 import 'package:provider/provider.dart';
 
@@ -11,6 +12,7 @@ import 'forms/form_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  NotificationService.initialize();
    await Firebase.initializeApp(
      options: DefaultFirebaseOptions.currentPlatform,
    );

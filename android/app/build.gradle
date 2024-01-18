@@ -24,8 +24,10 @@ if (flutterVersionName == null) {
 
 android {
     namespace "com.nepalwanderer.nepal_wanderer"
-    compileSdkVersion flutter.compileSdkVersion
+    compileSdkVersion 33
     ndkVersion flutter.ndkVersion
+
+
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -45,7 +47,7 @@ android {
         applicationId "com.nepalwanderer.nepal_wanderer"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
