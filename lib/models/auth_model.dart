@@ -9,30 +9,21 @@ UserModel userModelFromJson(String str) => UserModel.fromJson(json.decode(str));
 String userModelToJson(UserModel data) => json.encode(data.toJson());
 
 class UserModel {
-  String email;
-  String ? fname;
-  String ? lname;
-  String ? image;
+  String ? email;
+  String ? password;
+  String? image;
 
-  UserModel({
-    required this.email,
-    this.fname,
-    this.lname,
-    this.image,
-  });
+  UserModel({ this.email,  this.password, this.image});
 
   factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
-    email: json["email"],
-    fname: json["fname"],
-    lname: json["lname"],
-    image: json["image"],
-
-  );
+        email: json["email"],
+        password: json["password"],
+        image: json["image"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "email": email,
-    "fname": fname,
-    "lname": lname,
-    "image" : image,
-  };
+        "email": email,
+        "password": password,
+        "image": image,
+      };
 }

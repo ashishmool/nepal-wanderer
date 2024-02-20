@@ -50,6 +50,8 @@ dependencies:
   flutter_local_notifications: ^13.0.0
   fluttertoast: ^8.2.4
   path_provider: ^2.1.2
+  fake_cloud_firestore:
+
 
 
 

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nepal_wanderer/firestore_example/firestore_example.dart';
+import 'package:nepal_wanderer/pages/auth/forget_password_screen.dart';
 
-import '../forms/form_screen.dart';
 import '../pages/homepage_screen.dart';
 import '../pages/information_screen.dart';
 import '../pages/login_screen.dart';
@@ -38,11 +37,9 @@ class RouteGenerator{
       case BookingScreen.routeName:
         return MaterialPageRoute(builder: (_) => BookingScreen());
 
-      case FormScreen.routeName:
-        return MaterialPageRoute(builder: (_) => FormScreen());
+      case ForgetPasswordScreen.routeName:
+        return MaterialPageRoute(builder: (_) => ForgetPasswordScreen());
 
-      case FirestoreExample.routeName:
-        return MaterialPageRoute(builder: (_) => FirestoreExample());
 
       default:
         _onPageNotFound();

@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:nepal_wanderer/models/user_model.dart';
+import 'package:nepal_wanderer/models/auth_model.dart';
 
 class UserRepo{
+
   final instance = FirebaseFirestore.instance.collection('users').withConverter(
       fromFirestore: (snapshot, options) => UserModel.fromJson(snapshot.data() as Map<String,dynamic>),
       toFirestore: (UserModel value, options) => value.toJson(),);

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'package:nepal_wanderer/pages/registration_screen.dart';
 import 'package:nepal_wanderer/provider/user_view_model.dart';
-import 'package:nepal_wanderer/service/notification_service.dart';
+import 'package:nepal_wanderer/services/notification_service.dart';
 import 'package:provider/provider.dart';
 import 'homepage_screen.dart';
 

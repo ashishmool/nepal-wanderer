@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nepal_wanderer/repo/user_repo.dart';
 
-import '../models/user_model.dart';
+import '../models/auth_model.dart';
 
 class UserViewModel extends ChangeNotifier {
   Future<void> save(UserModel data) async {
@@ -42,7 +42,7 @@ class UserViewModel extends ChangeNotifier {
       if (a.data().email.toString() == email &&
           a.data().password.toString() == password) {
         _user = a.data();
-      }else{
+      } else {
         _user = UserModel();
       }
     }

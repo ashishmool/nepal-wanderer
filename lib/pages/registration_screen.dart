@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:nepal_wanderer/models/user_model.dart';
+import 'package:nepal_wanderer/models/auth_model.dart';
 import 'package:provider/provider.dart';
 
 import '../provider/user_view_model.dart';
@@ -246,15 +246,17 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   height: 50,
                   child: ElevatedButton(
                     onPressed: () async {
-                      final data = UserModel(
-                          email: emailController.text,
-                          password: passwordController.text,
-                          image: url);
-                      await value
-                          .save(data)
-                          .then((value) {})
-                          .onError((error, stackTrace) {});
 
+                      // final data = UserModel(
+                      //     email: emailController.text,
+                      //     password: passwordController.text,
+                      //     image: url);
+                      // await value
+                      //     .save(data)
+                      //     .then((value) {})
+                      //     .onError((error, stackTrace) {});
+
+                      ///
                       // setState(() {
                       //   loading = true;
                       // });
